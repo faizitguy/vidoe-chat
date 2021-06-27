@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/faizitguy/vidoe-chat/issues"
   },
-  "homepage": "https://github.com/faizitguy/vidoe-chat#readme"
+  "homepage": "https://github.com/faizitguy/vidoe-chat#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "socket.io": "^4.1.2"
+  }
 }
