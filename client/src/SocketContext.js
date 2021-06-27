@@ -1,4 +1,4 @@
-import React, { createConte, useState, useEffect, useRef } from "react";
+import React, { createContext, useState, useEffect, useRef } from "react";
 import { io } from "socket.io-client";
 import Peer from "simple-peer";
 
@@ -6,7 +6,8 @@ const SocketContext = createContext();
 
 const socket = io("http://localhost:5000");
 
-const contextProvider = ({ children }) => {
+const ContextProvider = ({ children }) => {
+  const [callAccepted, setCallAccepted] = useState(false);
   const [stream, setStream] = useState(null);
   const [me, setMe] = useState("");
   const [call, setCall] = useState({});
@@ -25,7 +26,7 @@ const contextProvider = ({ children }) => {
         myVideo.current.srcObject = currentStream;
       });
     socket.on("me", (id) => setMe(id));
-    socket.on("calluser", ({ from, name: calerName, signal }) => {
+    socket.on("calluser", ({ from, name: callerName, signal }) => {
       setCall({ isReceivedCall: true, from, name: callerName, signal });
     });
   }, []);
