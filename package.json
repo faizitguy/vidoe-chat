@@ -6,7 +6,10 @@
   "scripts": {
    "start" : "node index.js"
   },
- 
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faizitguy/vidoe-chat.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
